@@ -39,7 +39,7 @@ int main() {
 
     cout << "6. Highest price: " << *max_element(gasPrices.begin(), gasPrices.end()) << endl;
     cout << "7. Lowest price: " << *min_element(gasPrices.begin(), gasPrices.end()) << endl;
-    double avg = accumulate(gasPrices.begin(), gasPrices.end(), 0.0) / DAYS;
+    double avg = accumulate(gasPrices.begin(), gasPrices.end(), 0.0) / gasPrices.size();
     cout << fixed << setprecision(2) << "8. Average price: " << avg << endl;
 
     // sort elements
