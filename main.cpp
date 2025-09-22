@@ -4,7 +4,7 @@
 #include <iostream>
 #include <algorithm>
 #include <numeric>
-#include <array>
+#include <vector>
 #include <fstream>
 #include <iomanip>
 using namespace std;
@@ -12,7 +12,7 @@ using namespace std;
 const int DAYS = 30;
 
 int main() {
-    array<double, DAYS> gasPrices;
+    vector<double> gasPrices(DAYS);
 
     // Read from file
     ifstream fin;
@@ -52,19 +52,22 @@ int main() {
 
     // find an element
     double target = 4.33;
-    array<double, DAYS>::iterator it;
+    // array<double, DAYS>::iterator it;
+    vector<double>::iterator it;
     it = find(gasPrices.begin(), gasPrices.end(), target);
+    // it = find(gasPrices.begin(), gasPrices.end(), target); // fix
     cout << "11. Value " << target;
-    if (it != gasPrices.end())
-        cout << " found in position " << it - gasPrices.begin() << endl;
-    else
+    // if (it != gasPrices.end()) // fix
+    //    cout << " found in position " << it - gasPrices.begin() << endl; //fix
+    // else
         cout << " was not found.\n";
     
     // Station 2 with one value
-    array<double, DAYS> station2;
-    fill(station2.begin(), station2.end(), 4.00);
+    // array<double, DAYS> station2;
+    vector<double> station2(DAYS, 4.00);
+    // fill(station2.begin(), station2.end(), 4.00);
     cout << "12. Gas Station 2 first price: " << station2.front() << endl;
-    gasPrices.swap(station2);
+    gasPrices.swap(station2); // fix
     cout << "13. After swap, Station 1 first price: " << gasPrices.front() << endl;
 
     return 0;
