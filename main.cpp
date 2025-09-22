@@ -52,22 +52,18 @@ int main() {
 
     // find an element
     double target = 4.33;
-    // array<double, DAYS>::iterator it;
     vector<double>::iterator it;
     it = find(gasPrices.begin(), gasPrices.end(), target);
-    // it = find(gasPrices.begin(), gasPrices.end(), target); // fix
     cout << "11. Value " << target;
-    // if (it != gasPrices.end()) // fix
-    //    cout << " found in position " << it - gasPrices.begin() << endl; //fix
-    // else
+     if (it != gasPrices.end())
+        cout << " found in position " << it - gasPrices.begin() << endl;
+     else
         cout << " was not found.\n";
     
     // Station 2 with one value
-    // array<double, DAYS> station2;
     vector<double> station2(DAYS, 4.00);
-    // fill(station2.begin(), station2.end(), 4.00);
     cout << "12. Gas Station 2 first price: " << station2.front() << endl;
-    gasPrices.swap(station2); // fix
+    gasPrices.swap(station2);
     cout << "13. After swap, Station 1 first price: " << gasPrices.front() << endl;
 
     return 0;
